@@ -15,4 +15,5 @@ Functions take an input and produce an output
 Lexical Scoping?
 Resolving a value depends on the location in the code
 
- 
+newtype is a special case of data.
+It only permits one constructor and one field.

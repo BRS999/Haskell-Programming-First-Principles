@@ -36,3 +36,15 @@ module Stuff where
     -- mflip f = \x -> \y -> f y x
 
     mflip f x y = f y x
+
+
+    isittwo :: Integer -> Bool
+    isittwo 2 = True
+    isittwo _ = False
+
+    -- Pattern Matching
+    f :: (a, b) -> (c, d) -> ((b, d), (a, c))
+    f = undefined
+
+    addEmUp2 :: Num a => (a, a) -> a
+    addEmUp2 (x, y) = x + y
