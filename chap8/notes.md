@@ -7,5 +7,9 @@ or those that fail to terminate, like an infinite loop.
 
 ``` let x = x in x ```
 
+An error looks like
+
+``` f True = error "blah" ```
+
 
 

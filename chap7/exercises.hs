@@ -24,4 +24,7 @@ module Exercises where
 
     g :: (a -> b) -> (a, c) -> (b, c)
     g = undefined
+    g f (a , c) = (f a, c)
+
+    
     
