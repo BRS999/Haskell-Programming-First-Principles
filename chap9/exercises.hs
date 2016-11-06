@@ -74,7 +74,13 @@ module Exercises where
 
     -- Exercises: Bottom Madness
     -- 1 Bottomm, 2 [1], 3 B, 4 - 3, 5 B, 6 [2], 7 B, 8 [1], 9 [1,3], 10 B
-    
+
+
+    -- Intermission: Is it in normal form?
+    -- 1. NF, 2 WH, 3 WH, 4 WH, 5 no, 6 no, 7 WH
+
+    -- More Bottoms
+    -- 1 B, 2 V, 3 B, 4 Interesting, 5 [1,4,9,16,25,36,49,64,81,100], 6 [1,10,20], 7 [15,15,15],             
 
 
     
