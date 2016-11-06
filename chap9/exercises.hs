@@ -50,3 +50,31 @@ module Exercises where
     main =
         print $ "Are they equal? " 
             ++ show (myLines sentences == shouldEqual)
+
+
+    -- Exercises: Comprehend Thy Lists
+    mySqr = [x^2 | x <- [1..5]]
+
+    -- [x | x <- mySqr, rem x 2 == 0] = [4,16]
+
+    -- [(x, y) | x <- mySqr, y <- mySqr, x < 50, y > 50] = []
+
+    -- take 5 [ (x, y) | x <- mySqr, y <- mySqr, x < 50, y > 50 ] = []
+
+    -- Exercises: Square Cube
+
+    myCube = [y^3 | y <- [1..5]]
+
+    mysc = [(x , y) | x <- mySqr, y <- myCube]
+
+    mysc50 = [(x , y) | x <- mySqr, y <- myCube, x < 50, y < 50]
+
+    -- use length
+
+
+    -- Exercises: Bottom Madness
+    -- 1 Bottomm, 2 [1], 3 B, 4 - 3, 5 B, 6 [2], 7 B, 8 [1], 9 [1,3], 10 B
+    
+
+
+    
