@@ -11,3 +11,7 @@ module Char where
     cap :: String -> String
     cap (x : xs) = toUpper x : xs
     cap "" = ""
+
+    capall :: String -> String
+    capall (x : xs) = toUpper x : capall xs
+    capall "" = ""
