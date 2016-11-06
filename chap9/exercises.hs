@@ -82,5 +82,12 @@ module Exercises where
     -- More Bottoms
     -- 1 B, 2 V, 3 B, 4 Interesting, 5 [1,4,9,16,25,36,49,64,81,100], 6 [1,10,20], 7 [15,15,15],             
 
+    -- Zip
+    myzip :: [a] -> [b] -> [(a,b)]
+    myzip (x : xs) (y : ys) = ( x, y ) : myzip xs ys
+    myzip _ _ = []
 
+    myzipwith :: (a -> b -> c) -> [a] -> [b] -> [c]
+    myzipwith f (x : xs) (y : ys) = f x y : myzipwith f xs ys
+    myzipwith _ _ _ = []
     
