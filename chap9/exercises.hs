@@ -34,6 +34,11 @@ module Exercises where
         | dropWhile (/='\n') x == "" = [x]
         | otherwise = (takeWhile (/='\n') x) : myLines(dropWhile (=='\n') (dropWhile (/='\n') x))
 
+    myline :: String -> Char -> [String] 
+    myline x y
+        | dropWhile (/=y) x == "" = [x]
+        | otherwise = (takeWhile (/=y) x) : myLines(dropWhile (==y) (dropWhile (/=y) x))
+
     shouldEqual =
         [ "Tyger Tyger, burning bright"
         , "In the forests of the night"
