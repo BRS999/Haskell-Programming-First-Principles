@@ -71,7 +71,6 @@ module Exercises where
 
     -- use length
 
-
     -- Exercises: Bottom Madness
     -- 1 Bottomm, 2 [1], 3 B, 4 - 3, 5 B, 6 [2], 7 B, 8 [1], 9 [1,3], 10 B
 
@@ -90,4 +89,5 @@ module Exercises where
     myzipwith :: (a -> b -> c) -> [a] -> [b] -> [c]
     myzipwith f (x : xs) (y : ys) = f x y : myzipwith f xs ys
     myzipwith _ _ _ = []
+    
     
