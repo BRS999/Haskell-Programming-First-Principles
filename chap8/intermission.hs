@@ -5,3 +5,4 @@ module Intermission where
     applyTimes n f b = f . applyTimes (n-1) f $ b
 
     -- applyTimes 5 (+1) 5 = 10
+    
