@@ -1,5 +1,7 @@
 module Exercises where 
 
+    import Data.Bool
+
     -- Exercise: EnumFromTo
     
     eftBool :: Bool -> Bool -> [Bool]
@@ -58,6 +60,7 @@ module Exercises where
 
     -- Exercises: Comprehend Thy Lists
     mySqr = [x^2 | x <- [1..5]]
+    lessfive = filter (<5) $ enumFromTo 1 10
 
     -- [x | x <- mySqr, rem x 2 == 0] = [4,16]
 
@@ -84,6 +87,15 @@ module Exercises where
 
     -- More Bottoms
     -- 1 B, 2 V, 3 B, 4 Interesting, 5 [1,4,9,16,25,36,49,64,81,100], 6 [1,10,20], 7 [15,15,15],             
+
+    myBool = map (\x -> bool x (-x) (x == 3)) $ [1..10]
+
+    myFilter = filter pred . words 
+        where 
+            pred words = not $ elem words ["the", "a", "an"]
+
+    -- filter
+    multThree = filter (\x -> rem x 3 == 0)
 
     -- Zip
     myzip :: [a] -> [b] -> [(a,b)]
