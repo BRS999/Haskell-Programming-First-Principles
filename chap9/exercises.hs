@@ -5,15 +5,15 @@ module Exercises where
     eftBool :: Bool -> Bool -> [Bool]
     eftBool x y = enumFromTo x y :: [Bool]
 
-    eftOrd :: Ordering -> Ordering -> [Ordering]
-    eftOrd x y = enumFromTo x y :: [Ordering]
-
     eftInt :: Int -> Int -> [Int]
     eftInt x y = enumFromTo x y :: [Int]
 
     eftChar :: Char -> Char -> [Char]
-    eftChar x y = enumFromTo x y :: [Char]
-
+    eftChar x y = case compare x y of 
+            GT -> []
+            EQ -> [x]
+            LT -> x : eftChar (succ x) y
+            
     -- Exercises: Thy Fearful Symmetry
     fun = "all i wanna do is have some fun"
 
@@ -50,6 +50,10 @@ module Exercises where
     main =
         print $ "Are they equal? " 
             ++ show (myLines sentences == shouldEqual)
+
+    -- List example
+
+    data List a = EmptyList | ListElement a (List a) deriving Show
 
 
     -- Exercises: Comprehend Thy Lists
