@@ -8,3 +8,7 @@ foldr (\x y -> concat ["(",x,"+",y,")"])
 "0" xs
 :}
 ```
+
+Also 
+
+f = (\x y -> concat ["(",x,"+",y,")"])

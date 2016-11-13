@@ -8,5 +8,12 @@ module Sum where
     bring [] = []
     bring (x:xs) = x ++ bring xs 
 
+    psh :: Integer -> String
+    psh x 
+        | x == 0  = "zero"
+        | x <  0  = "less"
+        | x >  0  = "more"
+
+
     
 
