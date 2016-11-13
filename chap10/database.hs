@@ -1,6 +1,7 @@
 module Database where 
 
     import Data.Time
+    import Data.List
 
     data DatabaseItem = DbString String
                       | DbNumber Integer
@@ -35,3 +36,9 @@ module Database where
 
     sumDb :: [DatabaseItem] -> Integer
     sumDb = sum . filterDbNumber
+
+    -- Need average
+    average xs = realToFrac (sum xs) / genericLength xs 
+
+    avgDb :: [DatabaseItem] -> Double 
+    avgDb = average . filterDbNumber

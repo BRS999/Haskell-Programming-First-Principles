@@ -23,4 +23,18 @@ module Exercises where
     -- 5 g) foldr const '' "tacos"
     -- 5 h) foldl (flip const) ' ' "burritos"
     -- 5 i) foldl (flip const) 0 [1..5]
-    
+
+
+    -- Chapter Exercises
+
+    stops  = "pbtdkg"
+    vowels = "aeiou"
+
+    tuple1 = [(x,y,z) | x <- stops, y <- vowels, z <- stops]
+
+    tuple2 = [(x,y,z) | x <- stops, y <- vowels, z <- stops, x == 'p']
+
+    nouns = ["cat","house","wood","track"]
+    verbs = ["ran","jump","meows","fly"]
+
+    tuple3 = [(x,y,z) | x <- nouns, y <- verbs, z <- nouns]
