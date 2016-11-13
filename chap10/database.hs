@@ -42,3 +42,5 @@ module Database where
 
     avgDb :: [DatabaseItem] -> Double 
     avgDb = average . filterDbNumber
+
+    

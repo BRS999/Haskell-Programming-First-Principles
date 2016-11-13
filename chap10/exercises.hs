@@ -38,3 +38,32 @@ module Exercises where
     verbs = ["ran","jump","meows","fly"]
 
     tuple3 = [(x,y,z) | x <- nouns, y <- verbs, z <- nouns]
+
+    seekritFunc x =
+        div (sum (map length (words x)))
+           (length (words x))
+
+    seekritimproved x = 
+        (/) (fromIntegral (sum (map length (words x))))
+           (fromIntegral (length (words x)))
+
+    myAnd :: [Bool] -> Bool
+    myAnd = foldr (&&) True
+
+    myOr :: [Bool] -> Bool
+    myOr = foldr (||) True
+
+    myAny :: (a -> Bool) -> [a] -> Bool
+    myAny f = foldr ((||) . f) False
+    
+    myReverse :: [a] -> [a] 
+    myReverse = foldl (flip (:)) []
+   
+    myMap :: Foldable t => (a -> b) -> t a -> [b]
+    myMap f = foldr ((:) . f) []
+  
+    myFilter :: (a -> Bool) -> [a] -> [a] 
+    myFilter f = foldr (\a b -> if f a then a : b else b) []
+    
+    
+
