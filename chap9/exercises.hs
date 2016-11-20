@@ -5,10 +5,16 @@ module Exercises where
     -- Exercise: EnumFromTo
     
     eftBool :: Bool -> Bool -> [Bool]
-    eftBool x y = enumFromTo x y :: [Bool]
+    eftBool x y 
+        | x > y     = [] 
+        | x == y    = [x]
+        | otherwise = [x,y]
 
     eftInt :: Int -> Int -> [Int]
-    eftInt x y = enumFromTo x y :: [Int]
+    eftInt x y 
+        | x > y     = []
+        | x == y    = [x]
+        | otherwise = x : eftInt (succ x) y
 
     eftChar :: Char -> Char -> [Char]
     eftChar x y = case compare x y of 

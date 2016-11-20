@@ -44,17 +44,22 @@ module Exercises where
            (length (words x))
 
     seekritimproved x = 
-        (/) (fromIntegral (sum (map length (words x))))
+        (/) (fromIntegral (sum (map length (words x)))) 
            (fromIntegral (length (words x)))
 
     myAnd :: [Bool] -> Bool
     myAnd = foldr (&&) True
 
     myOr :: [Bool] -> Bool
-    myOr = foldr (||) True
+    myOr = foldr (||) False
 
     myAny :: (a -> Bool) -> [a] -> Bool
     myAny f = foldr ((||) . f) False
+
+    myAny1 f xs = foldr (\x acc -> (f x) || acc) False xs
+
+    myElem x = foldr (\y acc -> y == x || acc) False
+    myElem1 x = myAny ((==) x)
     
     myReverse :: [a] -> [a] 
     myReverse = foldl (flip (:)) []
@@ -64,6 +69,14 @@ module Exercises where
   
     myFilter :: (a -> Bool) -> [a] -> [a] 
     myFilter f = foldr (\a b -> if f a then a : b else b) []
+
+    squish = foldr (++) []
+
+    squishMap f = squish . (myMap f)
     
-    
+    squishAgain = squishMap id
+
+    myMaxBy f xs = foldr (\y acc -> if f y acc == GT then y else acc) (last xs) xs
+
+    myMinBy f xs = foldr (\y acc -> if f y acc == GT then acc else y) (last xs) xs    
 

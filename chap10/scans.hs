@@ -9,4 +9,8 @@ module Scans where
 
     fib20 = take 20 fibs
 
+    fact = 1 : scanl (\acc x -> acc * (x + 1)) 2 fact
+
+    fact1 = scanl (*) 1 [1..]
+
     
