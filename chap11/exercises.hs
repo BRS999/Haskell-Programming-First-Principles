@@ -78,4 +78,40 @@ module Exercises where
         tooMany n = n > 42
 
 
+    data OperatingSystem =
+        GnuPlusLinux
+        | OpenBSDPlusNevermindJustBSDStill 
+        | Mac
+        | Windows
+        deriving (Eq, Show)
+    
+    allOperatingSystems :: [OperatingSystem] 
+   
+    allOperatingSystems =
+        [ GnuPlusLinux
+        , OpenBSDPlusNevermindJustBSDStill 
+        , Mac
+        , Windows
+        ]
+      
+    data ProgrammingLanguage =
+        Haskell
+        | Agda
+        | Idris
+        | PureScript 
+        deriving (Eq, Show)
 
+    allLanguages :: [ProgrammingLanguage] 
+    allLanguages = [Haskell, Agda, Idris, PureScript]
+
+
+    data Programmer = 
+        Programmer { os :: OperatingSystem
+                    , lang :: ProgrammingLanguage } 
+        deriving (Eq, Show)
+
+
+    allProgrammers :: [Programmer] 
+    allProgrammers = [Programmer { os = os, lang = lang} | os <- allOperatingSystems, lang <- allLanguages]
+
+    
