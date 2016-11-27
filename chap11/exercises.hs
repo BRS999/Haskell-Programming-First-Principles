@@ -1,6 +1,7 @@
 module Exercises where 
 
     import Data.Int
+    import Data.Char (toUpper)
 
     data DogueDeBordeaux doge = DogueDeBordeaux doge
     data Doggies a = Husky a | Mastiff a deriving (Eq, Show)
@@ -114,4 +115,32 @@ module Exercises where
     allProgrammers :: [Programmer] 
     allProgrammers = [Programmer { os = os, lang = lang} | os <- allOperatingSystems, lang <- allLanguages]
 
-    
+    -- Chapter Exercises 
+    -- 1. a     2. c    3. b    4. c
+
+    isSubsequenceOf :: (Eq a) => [a] -> [a] -> Bool
+    isSubsequenceOf [] _ = True
+    isSubsequenceOf _ [] = False
+    isSubsequenceOf s@(x : xs) (y : ys) =
+        (x == y && isSubsequenceOf xs ys) || isSubsequenceOf s ys
+
+    capitalizeWord :: String -> String
+    capitalizeWord [] = []
+    capitalizeWord (x : xs) =  toUpper x : xs
+
+    capitalizeWords :: String -> [(String, String)]
+    capitalizeWords = map (\x -> (x , capitalizeWord x)) . words
+
+    -- Huttons Razor
+
+    data Expr
+       = Lit Integer
+       | Add Expr Expr
+
+    eval :: Expr -> Integer 
+    eval (Lit n) = n
+    eval (Add a b) = eval a + eval b
+
+    printExpr :: Expr -> String
+    printExpr (Lit n) = show n
+    printExpr (Add a b) = printExpr a ++ " + " ++ printExpr b
