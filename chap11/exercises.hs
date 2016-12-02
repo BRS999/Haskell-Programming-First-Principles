@@ -121,8 +121,9 @@ module Exercises where
     isSubsequenceOf :: (Eq a) => [a] -> [a] -> Bool
     isSubsequenceOf [] _ = True
     isSubsequenceOf _ [] = False
-    isSubsequenceOf s@(x : xs) (y : ys) =
-        (x == y && isSubsequenceOf xs ys) || isSubsequenceOf s ys
+    isSubsequenceOf s@(x : xs) (y : ys) 
+        | x == y        = isSubsequenceOf xs ys
+        | otherwise     = isSubsequenceOf s ys
 
     capitalizeWord :: String -> String
     capitalizeWord [] = []

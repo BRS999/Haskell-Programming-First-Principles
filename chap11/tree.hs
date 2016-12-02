@@ -32,6 +32,10 @@ module Tree where
         then print "yup okay!"
         else error "test failed!"
 
+    foldTree f acc Leaf = acc 
+    foldTree f acc (Node left x right)
+        = f x (foldTree f (foldTree f acc left) right)
+
 
     preorder :: BinaryTree a -> [a]
     preorder = undefined
