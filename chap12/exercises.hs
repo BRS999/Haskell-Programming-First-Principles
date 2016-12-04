@@ -17,7 +17,20 @@ module Exercises where
     countThes :: String -> Int
     countThes = length . filter (== "the") . words
 
-    countVowels :: String -> Int
-    countVowels x = length $ filter (`elem` "aeiou") x
+    vowels = "aeiou"
+    consonants = "qwrtypsdfghjklzxcvbnm"
 
+    countVowels :: String -> Int
+    countVowels x = length $ filter (`elem` vowels) x
+
+    countConsonants :: String -> Int
+    countConsonants x = length $ filter (`elem` consonants) x
     
+    newtype Word' = 
+        Word' String 
+        deriving (Eq, Show)
+
+    mkWord :: String -> Maybe Word' 
+    mkWord x 
+       | countConsonants x > countVowels x = Just $ Word' x
+       | otherwise = Nothing
