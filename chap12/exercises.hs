@@ -8,24 +8,35 @@ module Exercises where
     r = undefined 
     -- a * and f * -> *
 
+    notThe :: String -> Maybe String
+    notThe "the" = Nothing
+    notThe x = Just x
+
     replaceThe :: String -> String
     replaceThe = unwords . map noThe . words
       where
        noThe "the" = "a"
        noThe a = a
 
+   -- replaceThe' = unwords . map ((maybe "a" id) . notThe) . words
+
     countThes :: String -> Int
     countThes = length . filter (== "the") . words
 
     vowels = "aeiou"
-    consonants = "qwrtypsdfghjklzxcvbnm"
+
+    isVowel :: Char -> Bool
+    isVowel = (`elem` vowels)
+
+    isConsonants :: Char -> Bool
+    isConsonants c = not $ isVowel c
 
     countVowels :: String -> Int
-    countVowels x = length $ filter (`elem` vowels) x
+    countVowels x = length $ filter isVowel x
 
     countConsonants :: String -> Int
-    countConsonants x = length $ filter (`elem` consonants) x
-    
+    countConsonants x = length $ filter isConsonants x
+
     newtype Word' = 
         Word' String 
         deriving (Eq, Show)
