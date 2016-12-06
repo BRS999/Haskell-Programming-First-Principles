@@ -46,12 +46,19 @@ module Exercises where
        | countConsonants x > countVowels x = Just $ Word' x
        | otherwise = Nothing
 
+    catMaybes :: [Maybe a] -> [a]   
+    catMaybes ls = [ x | Just x <- ls]
+
     isJust :: Maybe a -> Bool
     isJust Nothing = False
     isJust (Just _) = True
 
     isNothing :: Maybe a -> Bool
     isNothing = not . isJust
+
+    flipMaybe :: [Maybe a] -> Maybe [a]
+    flipMaybe xs = if any isNothing xs then Nothing else Just 
+        (catMaybes xs)
 
     mayybee :: b -> (a -> b) -> Maybe a -> b
     mayybee g f x =
@@ -78,6 +85,9 @@ module Exercises where
             Just (a , b) -> a : myUnfoldr f b
             Nothing -> []
 
+    betterIterate f x = myUnfoldr g x
+        where g y = Just (y, (f y))
+
     data BinaryTree a = 
         Leaf
       | Node (BinaryTree a) a (BinaryTree a) 
@@ -88,3 +98,4 @@ module Exercises where
         case (f x) of 
             Nothing -> Leaf
             Just (a, b, c) -> Node (unfold f a) b (unfold f c)
+
